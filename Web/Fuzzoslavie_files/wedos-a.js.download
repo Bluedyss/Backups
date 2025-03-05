@@ -1,0 +1,105 @@
+/**
+ * =============================
+ * CONFIG
+ * =============================
+ */
+
+// source url for ads // not required
+const origin = "https://img.wedos.website";
+
+// days to disable ad for
+const disableForDays = 90;
+
+/** top config */
+
+// URL of top ad
+const topUrl = origin + "/stav/wedos_top/?utm_campaign=top&utm_source=" + window.location.hostname + "&utm_medium=websitefreeweb";
+// enable top ad
+const topDisplay = true;
+
+/** bottom config */
+
+// URL of bottom ad
+const bottomUrl = origin + "/stav/wedos_bottom/?utm_campaign=bottom&utm_source=" + window.location.hostname + "&utm_medium=websitefreeweb";
+// enable bottom ad
+const bottomDisplay = true;
+
+/** legal */
+// legal coments above ads
+const legalCommentCz = "Tato reklama je automaticky vkládána do tarifu WEDOS WebSite FREE. Pokud jí chcete odstranit, přejděte prosím na vyšší tarif. Vloženo WEDOS WebSite " + dateCreated;
+const legalCommentEn = "This advertisement is automatically inserted into the WEDOS WebSite FREE tariff. If you want to remove it, please upgrade to a higher plan. Inserted by WEDOS WebSite " + dateCreated;
+
+/**
+ * =============================
+ * DO NOT TOUCH, CODE STARTS HERE
+ * =============================
+ */
+
+// INIT
+function init()
+{
+    if(disableForDays)
+    {
+        // prepare date and count to enable
+        let wsCreated = new Date(dateCreated.replace(/\s/, 'T'));
+        let toEnableAt = wsCreated.getTime() + (1000*60*60*24*disableForDays);
+
+        if(Date.now() < toEnableAt)
+            return;
+
+        // prepare date and count to enable
+//        let wsCreated = new Date(dateCreated);
+//        let toEnableAt = new Date(wsCreated.getTime() + (1000*60*60*24*disableForDays));
+
+//        if(Date.now() < toEnableAt.getTime())
+//            return;
+    }
+
+    // prepare blocks
+    const blocks = {
+        "top": document.createElement('iframe'),
+        "bottom": document.createElement('iframe'),
+    }
+
+    // event listener for resize
+    window.addEventListener('message', (e) => {
+        if(e.origin !== origin)
+            return;
+
+        if(e.data.position !== false)
+            blocks[e.data.position].style.height = e.data.setHeight + 'px';
+    });
+
+    // setup blocks
+    if(topDisplay)
+    {
+        blocks["top"].style.width = "100%";
+        blocks["top"].style.display = "block";
+        blocks["top"].style.margin = "0 auto";
+        blocks["top"].style.padding = "0";
+        blocks["top"].style.border = "none";
+        blocks["top"].style.overflow = "hidden";
+        blocks["top"].src = topUrl;
+        document.body.prepend(blocks["top"]);
+        blocks["top"].parentNode.insertBefore(document.createComment(legalCommentCz), blocks["top"]);
+        blocks["top"].parentNode.insertBefore(document.createComment(legalCommentEn), blocks["top"]);
+    }
+
+    if(bottomDisplay)
+    {
+        blocks["bottom"].style.width = "100%";
+        blocks["bottom"].style.display = "block";
+        blocks["bottom"].style.margin = "0 auto";
+        blocks["bottom"].style.padding = "0";
+        blocks["bottom"].style.border = "none";
+        blocks["bottom"].style.overflow = "hidden";
+        blocks["bottom"].src = bottomUrl;
+        document.body.appendChild(blocks["bottom"]);
+        blocks["bottom"].parentNode.insertBefore(document.createComment(legalCommentCz), blocks["bottom"]);
+        blocks["bottom"].parentNode.insertBefore(document.createComment(legalCommentEn), blocks["bottom"]);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    init();
+});

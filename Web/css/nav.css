@@ -1,0 +1,38 @@
+        header {
+        border-radius: 0 0 10px 10px;
+            display: flex;
+            align-items: center;
+            background-color: black;
+            height: 50px;
+            padding: 0 20px;
+        }
+        .icon {
+            width: 40px;
+            height: 40px;
+            background-image: url('/icon/paws.png');
+            background-size: cover;
+            margin-right: 10px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            display: block;
+            color: white;
+            margin: 10px;
+            padding: 2px 6px;
+            border: 2px solid transparent;
+        border-radius: 10px;
+            transition: border-color 0.3s ease;
+            font-size: 24px;
+            
+        }
+
+        nav a:hover {
+            border-color: lightblue;
+            color: lightblue;
+        }

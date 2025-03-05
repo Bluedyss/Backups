@@ -1,0 +1,246 @@
+body {
+    margin: 20px;
+    //min-height: 100vh;
+    background-color: black;
+    font: 100% Courier New;
+    line-height: 26px;
+}
+
+#top {
+    color: #84c754;
+    padding: 15px;
+}
+
+#main {
+    padding: 10px;
+    color: #84c754;
+    float: left; 
+    width: 80%; 
+}
+
+#sidebar_profile_border {
+      display: inline-block;
+      border: 1px solid #ffffff;
+      border-radius: 50px;
+      text-align: center;
+    position: absolute;
+      padding: 10px;
+      padding-left: 10px;
+      padding-right: 10px;
+    width: 200px;
+    top: 0;
+    right: 20px;
+     color: white;
+      
+      
+    /*  text-align: center;
+    width: 200px;
+    height: 200px;
+    right: 0;
+    font-size: 80%;
+    line-height: 20px;
+    float: right; */
+    
+}
+.sidebar_profile_text {
+text-align: center;
+    color: #ffffff;
+
+    
+}
+.sidebar_photo img{
+      display: inline-block;
+      border: 5px; 
+      border-radius: 20px; 
+      padding: 0px;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      
+      /*display: inline-block;
+      padding: 10px;
+      width: 100%;
+      height: 100%;
+      border: 5px; 
+      border-radius: 20px; 
+      overflow: hidden; */
+    }
+
+#sidebar_links_border {
+      display: inline-block;
+      border: 1px solid #ffffff;
+      border-radius: 50px;
+      text-align: center;
+    position: absolute;
+      padding: 10px;
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-bottom: 30px;
+    width: 200px;
+    top: 350px;
+    right: 20px;
+     color: white;
+}
+
+.sidebar_links_text {
+text-align: center;
+    color: white;   
+}
+.sidebar_links_link {
+text-align: center;
+padding: 10px;
+    color: white;   
+}
+
+.sidebar_links_link a {
+text-decoration: none;
+text-align: center; 
+    color: #009bea;
+}
+.sidebar_links_photo {
+      /*padding: 20px;*/
+    }
+.sidebar_links_photo img{
+      display: inline-block;
+      border: 5px; 
+      border-radius: 0px; 
+      padding: 0px;
+      padding-top: 5px;
+      height: 24px;
+      overflow: hidden;
+    }
+#bottom {
+    border: 1px solid #ffffff;
+    border-radius: 4px;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    font-size: 70%;
+    line-height: 14px;
+    clear: both;
+}
+
+  #copyright_border {
+      text-align: center;
+      padding: 10px;
+      bottom: 0;
+      }
+
+.copyright_text {
+      display: inline-block;
+      border: 3px solid gray;
+      border-radius: 10px;
+      padding: 10px;
+      padding-left: 50px;
+      padding-right: 50px;
+      color: white;
+      
+  }
+  .color_green {
+    color: #84c754;
+      
+  }
+
+#top h1, #top p {
+    margin: 0;
+}
+
+  
+.container {
+    min-width: 600px; /* Oprava: bylo xmin-width, mělo být min-width */
+    position: relative; /* Přidáno: Umožní nastavit boční panel vzhledem k containeru */
+}
+
+#language {
+      display: inline-block;
+      text-align: center;
+    position: relative;
+      padding: 0px;
+      padding-left: 10px;
+      padding-right: 10px;
+    width: 32px;
+    top: 0px;
+    left: 0px;
+}
+
+.language_photo img {
+      display: inline-block;
+      border: 2px solid Blue; 
+      border-radius: 20px; 
+      padding: 0px;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      cursor: pointer;
+      
+}
+
+
+
+
+@media (max-width: 829px) {/*600*/
+    #sidebar_profile_border {
+        width: 100%;
+        float: none;
+        position: static;
+        border-radius: 80px;
+        margin-top: 10px;
+        box-sizing: border-box;
+        padding: 10px;
+    }
+    #sidebar_links_border {
+        width: 100%;
+        float: none;
+        position: static;
+        border-radius: 80px;
+        margin-top: 10px;
+        box-sizing: border-box;
+        padding: 10px;
+    }
+
+    #main {
+        width: 100%;
+        float: none;
+    }
+
+    #bottom {
+        margin-top: 10px;
+        padding: 10px;
+    }
+
+    #top {
+        padding: 10px;
+    }
+
+    .container {
+        min-width: 0;
+        overflow: hidden;
+    }
+}
+
+@media (min-width: 830px) {/*601*/
+    #sidebar_profile {
+        margin-top: 0;
+        float: right;
+    }
+
+    #main {
+        /*width: 75%;*/
+        width: calc(100% - 323px);
+    }
+
+    #sidebar_profile {
+        width: 20%;
+    }
+    #sidebar_links {
+        width: 20%;
+    }
+    #bottom {
+    margin-top: 20px;
+    }
+    #copyright_border{
+        width: calc(100% - 323px);
+
+    }
+    
+}

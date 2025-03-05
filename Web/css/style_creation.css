@@ -1,0 +1,20 @@
+    body{
+  margin: 0px;
+  background: dimgray; 
+}
+  #copyright_border {
+      text-align: center;
+      padding: 10px;
+      bottom: 0;
+      }
+
+.copyright_text {
+      display: inline-block;
+      border: 3px solid gray;
+      border-radius: 10px;
+      padding: 10px;
+      padding-left: 50px;
+      padding-right: 50px;
+      color: white;
+      
+  }
